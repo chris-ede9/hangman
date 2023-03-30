@@ -5,6 +5,7 @@ word = random.choice(word_list)
 
 while True: 
     guess = input("Please enter a single letter ")
+    guess = guess.lower()
 
     if (len(guess) == 1 and guess.isalpha() == True):
         if (guess in word):
