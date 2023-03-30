@@ -34,6 +34,43 @@ else:
     print("Oops! That is not a valid input.")
 ```
 
+## Milestone 3
+
+- This milestone first concentrated on checking whether the input provided by the user was in the random fruit word that was selected. It would keep repeating the request until the user selected a letter that was a match.
+
+- However as the code was becoming one long script, the milestone also specified that it should be more readable and functions should be applied. The code was refactored to contain 2 functions:
+    - check_guess
+    - ask_for_input
+<br/><br/>
+- Below is the code done for milestone 3:
+
+```bash
+import random
+
+def check_guess(guess):
+    guess = guess.lower()
+    if (guess in word.lower()):
+        print(f"Good guess! {guess} is in the word.")
+        return True
+    else:
+        print(f"Sorry, {guess} is not in the word. Try again.")
+        return False
+
+def ask_for_input():
+    while True:
+        guess = input("Please enter a single letter ")
+        if (len(guess) == 1 and guess.isalpha() == True):
+            if check_guess(guess) == True:
+                break
+        else:
+            print("Invalid letter. Please enter a single alphabetical character")
+
+word_list = ["apples", "blueberries", "grapes", "oranges", "strawberries"]
+word = random.choice(word_list)
+
+ask_for_input()
+```
+
 ## Milestone n
 
 - Continue this process for every milestone, making sure to display clear understanding of each task and the concepts behind them as well as understanding of the technologies used.
