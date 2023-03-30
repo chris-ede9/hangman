@@ -7,7 +7,7 @@ while True:
     guess = input("Please enter a single letter ")
 
     if (len(guess) == 1 and guess.isalpha() == True):
-        if (guess.lower() in word.lower()):
+        if (guess in word):
             print(f"Good guess! {guess} is in the word.")
             break
         else:
