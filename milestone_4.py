@@ -58,6 +58,7 @@ class Hangman:
     def check_guess(self, guess):
         '''
         This function checks if the guessed letter is in the word and notifies the user if it is.
+        If the guess is in the word the attribute word_guessed if updated to show the letter(s) in the word.
 
         Returns:
             Nothing
@@ -65,6 +66,11 @@ class Hangman:
         guess = guess.lower()
         if (guess in self.word.lower()):
             print(f"Good guess! {guess} is in the word.")
+            for index, char in enumerate(self.word):
+                if (char == guess):
+                    self.word_guessed[index] = guess
+            
+            self.num_letters -= 1
     
     def ask_for_input(self):
         '''
