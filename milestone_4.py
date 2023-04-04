@@ -54,15 +54,46 @@ class Hangman:
             if (word_guessed[index] == ''):
                 remaining_letters.append(char)
         return len(set(remaining_letters))
+    
+    def check_guess(self, guess):
+        '''
+        This function checks if the guessed letter is in the word and notifies the user if it is.
+
+        Returns:
+            Nothing
+        '''
+        guess = guess.lower()
+        if (guess in self.word.lower()):
+            print(f"Good guess! {guess} is in the word.")
+    
+    def ask_for_input(self):
+        '''
+        This function asks the user to input a letter to guess and validates if its a valid input or has already been chosen.
+
+        Returns:
+            Nothing
+        '''
+        while True:
+            guess = input("Please enter a single letter ")
+            if not (len(guess) == 1 and guess.isalpha() == True):
+                print("Invalid letter. Please enter a single alphabetical character")
+            elif (guess in self.list_of_guesses):
+                print("You already tried that letter!")
+            else:
+                self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+
+word_list = ["apples", "blueberries", "grapes", "oranges", "strawberries"]
+new_game = Hangman(word_list)
+new_game.ask_for_input()
 
 '''
 #Testing purposes
-word_list = ["apples", "blueberries", "grapes", "oranges", "strawberries"]
-new_game = Hangman(word_list, 7)
 print(new_game.word_list)
 print(new_game.num_lives)
 print(new_game.list_of_guesses)
 print(new_game.word)
 print(new_game.word_guessed)
 print(new_game.num_letters)
+
 '''
