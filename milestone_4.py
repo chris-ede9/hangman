@@ -59,6 +59,7 @@ class Hangman:
         '''
         This function checks if the guessed letter is in the word and notifies the user if it is.
         If the guess is in the word the attribute word_guessed if updated to show the letter(s) in the word.
+        Else if the guess isn't the number of lives is reduced by 1.
 
         Returns:
             Nothing
@@ -71,6 +72,10 @@ class Hangman:
                     self.word_guessed[index] = guess
             
             self.num_letters -= 1
+        else:
+            self.num_lives -= 1
+            print(f"Sorry, {guess} is not in the word.")
+            print(f"You have {self.num_lives} lives left.")
     
     def ask_for_input(self):
         '''
