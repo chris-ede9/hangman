@@ -93,7 +93,7 @@ class Hangman:
             self.check_guess(guess)
             self.list_of_guesses.append(guess)
     
-    def play_game(self, word_list):
+    def play_game(word_list):
         '''
         This function starts a new game of Hangman with 5 lives, based on the word_list that was passed in as a parameter.
 
@@ -119,4 +119,4 @@ word_list = []
 word_list.extend(fruits)
 word_list.extend(vegetables)
 
-Hangman.play_game(Hangman, word_list)
+Hangman.play_game(word_list)
