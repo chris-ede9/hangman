@@ -181,8 +181,36 @@ new_game = Hangman(word_list)
 new_game.ask_for_input()
 ```
 
+## Milestone 5
+
+- This milestone completed the Hangman game, creating a play_game method that kept a check on the letters that had been guessed and the number of lives left.
+
+- The result of this method will determine if the user won or lost the game depending on the inputs that were entered.
+
+- Below is the code done for milestone 5 regarding the play_game method:
+
+```bash
+def play_game(self, word_list):
+        '''
+        This function starts a new game of Hangman with 5 lives, based on the word_list that was passed in as a parameter.
+
+        Returns:
+            Nothing
+        '''
+        num_lives = 5
+        game = Hangman(word_list, num_lives)
+        while True:
+            print(game.word_guessed)
+            if game.num_lives == 0:
+                print(f"You lost! The word was {game.word}")
+                break
+            elif game.num_letters > 0:
+                game.ask_for_input()
+            elif game.num_lives > 0 and game.num_letters == 0:
+                print("Congratulations. You won the game!")
+                break
+```
 ## Conclusions
 
-- Maybe write a conclusion to the project, what you understood about it and also how you would improve it or take it further.
+- Overall this project gave a good understanding of the OOP principles and the fundamentals needed for Python development. As well as understanding how to setup the development environemnt. 
 
-- Read through your documentation, do you understand everything you've written? Is everything clear and cohesive?
